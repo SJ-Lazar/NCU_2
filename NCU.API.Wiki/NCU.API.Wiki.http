@@ -1,0 +1,6 @@
+@NCU.API.Wiki_HostAddress = http://localhost:5003
+
+GET {{NCU.API.Wiki_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
