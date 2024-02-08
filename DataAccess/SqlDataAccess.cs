@@ -38,6 +38,7 @@ public class SqlDapperDataAccess
     public async Task<bool> SaveData<T>(string dbConnectionString, string sqlStatement, T parameters) => 
         await Save(dbConnectionString, sqlStatement, parameters);
 
+    string connectionString = "Data Source=ServerName;Initial Catalog=DatabaseName;User ID=UserName;Password=Password";
 
     #region Private Methods 
     private async Task<T?> ScalarQuery<T, U>(string dbConnectionString, string sqlStatement, U parameters)
@@ -59,7 +60,8 @@ public class SqlDapperDataAccess
     {
         try
         {
-            using IDbConnection connection = new SqlConnection(dbConnectionString);
+            using SqlConnection connection = new SqlConnection(dbConnectionString);
+            connection.Open();
             var data = await connection.QueryAsync<T>(sqlStatement, parameters);
             return data;
         }

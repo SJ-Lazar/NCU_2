@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[Pages]
+(
+	PageId int IDENTITY(1,1) PRIMARY KEY,
+    Title NVARCHAR(200),
+    Content NVARCHAR(MAX),
+    CreatedBy NVARCHAR(128),
+    CreatedAt DATETIME2 DEFAULT GETDATE(),
+    UpdatedAt DATETIME2 DEFAULT GETDATE()
+)
